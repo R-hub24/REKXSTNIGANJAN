@@ -16,7 +16,6 @@
             --white: #ffffff;
             --text-dark: #212529;
             --border-color: #ced4da;
-            --danger-red: #c9184a;
         }
 
         * {
@@ -131,7 +130,6 @@
 
         input[type="text"],
         input[type="tel"],
-        input[type="password"],
         select {
             width: 100%;
             padding: 11px 14px;
@@ -199,139 +197,6 @@
 
         .submit-btn:hover {
             background: var(--primary-green);
-        }
-
-        .back-btn {
-            background: var(--light-green);
-            border: 1px solid var(--secondary-green);
-            color: var(--primary-green);
-            font-weight: 700;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.2s;
-            font-size: 0.95rem;
-        }
-
-        .back-btn:hover {
-            background: var(--secondary-green);
-            color: var(--white);
-        }
-
-        .admin-panel-toggle {
-            text-align: center;
-            margin-top: 1rem;
-        }
-
-        .admin-btn {
-            background: transparent;
-            border: 1px dashed var(--secondary-green);
-            color: var(--secondary-green);
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-
-        .admin-btn:hover {
-            background: var(--light-green);
-        }
-
-        #adminSection {
-            display: none;
-            margin-top: 1.5rem;
-            padding: 1.5rem;
-            background: #fff;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-
-        .id-card-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .digital-id-card {
-            background: linear-gradient(135deg, #ffffff, #f0f7f4);
-            border: 2px solid var(--secondary-green);
-            border-radius: 14px;
-            padding: 1.5rem;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-            position: relative;
-        }
-
-        .id-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 2px solid var(--light-green);
-            padding-bottom: 10px;
-            margin-bottom: 12px;
-        }
-
-        .id-header-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .id-logo-small {
-            width: 45px;
-            height: 45px;
-            background: var(--primary-green);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .id-body p {
-            margin-bottom: 6px;
-            font-size: 0.95rem;
-        }
-
-        .id-images {
-            display: flex;
-            gap: 10px;
-            margin-top: 12px;
-        }
-
-        .id-images img {
-            width: 50%;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-        }
-
-        .delete-card-btn {
-            background: var(--danger-red);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            margin-top: 15px;
-            width: 100%;
-            font-weight: bold;
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .delete-card-btn:hover {
-            opacity: 0.85;
         }
     </style>
 </head>
@@ -430,36 +295,12 @@
 
                     <button type="submit" class="submit-btn" id="submitBtn">ناردنی زانیارییەکان</button>
                 </form>
-
-                <div class="admin-panel-toggle">
-                    <button class="admin-btn" onclick="toggleAdminPanel()">پیشاندانی ئەنجامەکان (تایبەت بە بەڕێوەبەر)</button>
-                </div>
-
-                <div id="adminSection">
-                    <h3>داخڵبوون بۆ بەشی ئەنجامەکان</h3>
-                    <div class="form-group" style="margin-top: 10px;">
-                        <input type="password" id="adminPassword" placeholder="پاسۆرد بنووسە...">
-                        <button class="submit-btn" style="padding: 10px; margin-top: 8px;" onclick="checkAdminPassword()">کردنەوەی ئەنجامەکان</button>
-                    </div>
-                    
-                    <div id="resultsView" style="margin-top: 15px; display:none;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
-                            <h3 style="color: var(--primary-green);">کارتی ئەندامانی تۆمارکراو:</h3>
-                            <button class="back-btn" onclick="toggleAdminPanel()"><i class="fa-solid fa-arrow-right"></i> گەڕانەوە</button>
-                        </div>
-                        <div id="idCardsContainer" class="id-card-grid"></div>
-                        <div style="margin-top: 20px; text-align: center;">
-                            <button class="back-btn" onclick="toggleAdminPanel()"><i class="fa-solid fa-arrow-right"></i> گەڕانەوە بۆ فۆرم</button>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyW4-f4YU73AXioDHDHCAwQ-Kye1O5wxjJ83mp0BetoGzptd6EmdiwwQo_qkO7emNn3/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxd_7UWpKjpqB9RIXzdFcPkH_xnBoIaprJEtmF2Ic5XE4KZin9iVboc6tetlGyjJfoK/exec';
 
         fetchTotalCount();
 
@@ -499,31 +340,13 @@
             }
         }
 
-        function toggleAdminPanel() {
-            const adminSec = document.getElementById('adminSection');
-            adminSec.style.display = adminSec.style.display === 'block' ? 'none' : 'block';
-        }
-
         function fetchTotalCount() {
             fetch(scriptURL)
             .then(res => res.json())
             .then(data => {
-                let hiddenCards = JSON.parse(localStorage.getItem('hidden_cards') || '[]');
-                let activeCount = data.length - hiddenCards.length;
-                document.getElementById('totalCounter').innerText = activeCount >= 0 ? activeCount : data.length;
+                document.getElementById('totalCounter').innerText = data.length;
             })
             .catch(err => console.error("Error fetching count:", err));
-        }
-
-        function checkAdminPassword() {
-            const pass = document.getElementById('adminPassword').value;
-            if (pass === "7788") {
-                document.getElementById('resultsView').style.display = 'block';
-                loadIDCardsFromSheet();
-                alert("بە سەرکەوتوویی کرایەوە!");
-            } else {
-                alert("پاسۆرد هەڵەیە!");
-            }
         }
 
         function submitData(e) {
@@ -540,7 +363,6 @@
                 toBase64(backFile, function(backBase64) {
                     
                     const formData = {
-                        action: "insert",
                         fullName: document.getElementById('fullName').value,
                         phone: document.getElementById('phone').value,
                         city: document.getElementById('city').value,
@@ -590,71 +412,6 @@
 
                 });
             });
-        }
-
-        function loadIDCardsFromSheet() {
-            const container = document.getElementById('idCardsContainer');
-            container.innerHTML = "<p>لە کاتی هێنانی زانیارییەکان...</p>";
-
-            fetch(scriptURL)
-            .then(res => res.json())
-            .then(allMembers => {
-                container.innerHTML = "";
-                
-                let hiddenCards = JSON.parse(localStorage.getItem('hidden_cards') || '[]');
-                let visibleMembers = allMembers.filter(m => !hiddenCards.includes(m.voterCard));
-
-                if (visibleMembers.length === 0) {
-                    container.innerHTML = "<p>هیچ ئەندامێک لە داتاشیتدا تۆمار نەکراوە یان هەمووی سڕاونەتەوە.</p>";
-                    return;
-                }
-
-                visibleMembers.forEach((m, index) => {
-                    let card = document.createElement('div');
-                    card.className = 'digital-id-card';
-                    card.innerHTML = `
-                        <div class="id-header">
-                            <div class="id-header-left">
-                                <div class="id-logo-small">EY</div>
-                                <div>
-                                    <h4 style="color: var(--primary-green);">${m.fullName}</h4>
-                                    <span style="font-size: 0.85rem; color: var(--secondary-green); font-weight: bold;">${m.membershipType}</span>
-                                </div>
-                            </div>
-                            <span style="font-size: 0.8rem; background: var(--light-green); padding: 2px 8px; border-radius: 4px; color: var(--primary-green);">#${index + 1}</span>
-                        </div>
-                        <div class="id-body">
-                            <p><strong>شار:</strong> ${m.city} | <strong>کۆمیتە:</strong> ${m.committee}</p>
-                            <p><strong>مۆبایل:</strong> ${m.phone}</p>
-                            <p><strong>کارتی دەنگدان:</strong> ${m.voterCard} (${m.voterStation})</p>
-                            ${m.membershipType === 'بەرپرسی تیم' ? `<p style="font-size:0.85rem; color:#40916c;"><strong>ئەندامانی تیم:</strong> ${m.teamMembers}</p>` : ''}
-                            <div class="id-images">
-                                ${m.frontImage ? `<img src="${m.frontImage}" alt="پێشەوە">` : '<div style="width:50%; text-align:center; padding:20px; font-size:0.8rem;">وێنە نییە</div>'}
-                                ${m.backImage ? `<img src="${m.backImage}" alt="پشتەوە">` : '<div style="width:50%; text-align:center; padding:20px; font-size:0.8rem;">وێنە نییە</div>'}
-                            </div>
-                            <button class="delete-card-btn" onclick="hideCardLocally('${m.voterCard}')"><i class="fa-solid fa-trash-can"></i> سڕینەوەی ئەم ئەندامە لە سایت</button>
-                        </div>
-                    `;
-                    container.appendChild(card);
-                });
-            })
-            .catch(err => {
-                container.innerHTML = "<p style='color: red;'>هەڵە لە هێنانی داتاکان لە داتاشیتەوە.</p>";
-                console.error(err);
-            });
-        }
-
-        function hideCardLocally(voterCard) {
-            if (confirm("ئایا دڵنیای لە سڕینەوەی ئەم کارتە لە سایتەکە؟ (داتاکە لە داتاشیت نامێنێت بەڵکو تەنها لەم سایتە دەسڕێتەوە)")) {
-                let hiddenCards = JSON.parse(localStorage.getItem('hidden_cards') || '[]');
-                if (!hiddenCards.includes(voterCard)) {
-                    hiddenCards.push(voterCard);
-                    localStorage.setItem('hidden_cards', JSON.stringify(hiddenCards));
-                }
-                alert("بە سەرکەوتوویی لە سایتەکە سڕایەوە!");
-                fetchTotalCount();
-                loadIDCardsFromSheet();
-            }
         }
 
         function toBase64(file, callback) {
