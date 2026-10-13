@@ -601,10 +601,7 @@
             .then(allMembers => {
                 container.innerHTML = "";
                 
-                // هێنانی لیست ئەو کارتانەی کە لە سایتەکەدا شارراونەتەوە (سڕاونەتەوە)
                 let hiddenCards = JSON.parse(localStorage.getItem('hidden_cards') || '[]');
-                
-                // فلتەرکردنی کارتەکان بۆ ئەوەی ئەوانەی سڕاونەتەوە پیشان نەدرێن
                 let visibleMembers = allMembers.filter(m => !hiddenCards.includes(m.voterCard));
 
                 if (visibleMembers.length === 0) {
